@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naughts and Crosses</title>
+    <title>Naughts and Crosses - Enhanced Edition</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,10 +11,11 @@
     <div class="welcome-screen" id="welcome-screen">
         <div class="welcome-container">
             <h1>Naughts and Crosses</h1>
+            <div class="subtitle">⚡ Enhanced Edition ⚡</div>
             <p>Choose your game mode</p>
             <div class="mode-buttons">
-                <button onclick="selectMode('single')" class="mode-btn">Single Player</button>
-                <button onclick="selectMode('two')" class="mode-btn">Two Players</button>
+                <button onclick="selectMode('single')" class="mode-btn"> Single Player</button>
+                <button onclick="selectMode('two')" class="mode-btn"> Two Players</button>
             </div>
         </div>
     </div>
@@ -22,9 +23,9 @@
     <!-- Settings Screen -->
     <div class="settings-screen hidden" id="settings-screen">
         <div class="settings-container">
-            <h2>Game Settings</h2>
+            <h2>⚙️ Game Settings</h2>
             
-            <!-- Difficulty Section (Single Player Only) -->
+            <!-- Difficulty Section -->
             <div class="settings-section" id="difficulty-section">
                 <h3>Difficulty</h3>
                 <div class="difficulty-buttons">
@@ -33,6 +34,18 @@
                 </div>
                 <div class="difficulty-info" id="difficulty-info">
                     Computer plays with standard AI
+                </div>
+            </div>
+
+            <!-- Power-ups Section -->
+            <div class="settings-section">
+                <h3>⚡ Power-ups Mode</h3>
+                <div class="powerup-buttons">
+                    <button class="powerup-btn active" onclick="togglePowerups(true)">Enabled</button>
+                    <button class="powerup-btn" onclick="togglePowerups(false)">Disabled</button>
+                </div>
+                <div class="powerup-info">
+                    Enable special abilities for strategic gameplay
                 </div>
             </div>
 
@@ -52,7 +65,6 @@
             <div class="settings-section">
                 <h3>Player Names</h3>
                 <div class="name-inputs" id="name-inputs">
-                    <!-- Dynamic content will be inserted here -->
                 </div>
             </div>
             
@@ -65,7 +77,7 @@
 
     <!-- Game Screen -->
     <div class="game-container hidden" id="game-container">
-        <h1>Naughts and Crosses</h1>
+        <h1>⚡ Naughts and Crosses ⚡</h1>
         
         <div class="game-info">
             <div class="game-details">
@@ -91,6 +103,13 @@
             </div>
         </div>
 
+        <!-- Power-ups Section -->
+        <div class="powerups-section" id="powerups-display">
+            <h3>⚡ Your Power-ups</h3>
+            <div class="powerup-grid" id="powerup-grid">
+            </div>
+        </div>
+
         <div class="game-message" id="game-message">
             Current player: <span class="current-player" id="current-player">X</span>
         </div>
@@ -108,8 +127,8 @@
         </div>
 
         <div class="controls">
-            <button onclick="resetGame()">New Game</button>
-            <button onclick="resetScore()">Reset Score</button>
+            <button onclick="resetGame()">🔄 New Game</button>
+            <button onclick="resetScore()">📊 Reset Score</button>
         </div>
     </div>
 
